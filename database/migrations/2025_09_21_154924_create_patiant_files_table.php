@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->foreignId('patiant_id')->references('id')->on('patiants')->onDelete('cascade');
-            $table->string('file-path') ;
+            $table->string('filePath') ;
             $table->enum('type',['image','pdf']);
 
             $table->timestamps();

@@ -14,6 +14,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         //
+        Patient::class => PatientPolicy::class,
+        Appointment::class => AppointmentPolicy::class,
+        PatiantFile::class => PatiantFilePolicy::class,
     ];
 
     /**

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('age') ;
             $table->string('phone')->unique();
             $table->string('address');
-            $table->boolean('archived')->default('false') ;
+            $table->boolean('archived')->default('0') ;
             $table->date('archived_at')->nullable() ;
 
             $table->timestamps();

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('procedures', function (Blueprint $table) {
             $table->id();
             $table->uuid() ;
-            $table->string('procedure_name') ;
+            $table->text('procedure_name') ;
             $table->text('description') ;
             $table->foreignId('session_id')->references('id')->on('medical_sessions')->onDelete('cascade');
 

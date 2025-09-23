@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
             $table->uuid() ;
-            $table->string('drug_name') ;
-            $table->string('dosage') ;
-            $table->string('frequency') ;
-            $table->string('duration') ;
-            $table->string('instructions') ;
+            $table->text('drug_name') ;
+            $table->text('dosage') ;
+            $table->text('frequency') ;
+            $table->text('duration') ;
+            $table->text('instructions') ;
             $table->foreignId('session_id')->references('id')->on('medical_sessions')->onDelete('cascade');
             
             $table->timestamps();

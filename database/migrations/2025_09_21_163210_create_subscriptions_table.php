@@ -23,8 +23,6 @@ return new class extends Migration
             $table->enum('status',['active','canceled','expired','pending'])->default('pending');
 
 
-
-
             $table->timestamps();
         });
     }

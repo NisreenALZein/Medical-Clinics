@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid() ;
             $table->foreignId('doctor_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('patiant_id')->references('id')->on('patiants')->onDelete('cascade');
-            $table->foreignId('appointment_id')->references('id')->on('appointment')->onDelete('cascade');
+            $table->foreignId('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
             $table->text('complaint') ;
             $table->text('diagnoseis') ;
             $table->timestamps();

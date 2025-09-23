@@ -20,11 +20,6 @@ return new class extends Migration
             $table->string('address');
             $table->enum('role',['admin','doctor','assistance','receptionist'])->default('doctor') ;
 
-
-
-
-
-
         });
     }
 

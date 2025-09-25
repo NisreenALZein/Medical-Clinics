@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PatiantFileResource\Pages;
 use App\Filament\Resources\PatiantFileResource\RelationManagers;
 use App\Models\PatiantFile;
+use App\Models\Patiant;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;

@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->darkMode(true)
             ->login()
             ->registration(false)
+            ->renderHook('panels::body.end',fn (): string => view('vendor.filament.components.translation-button'))
             ->colors([
                 'primary' => Color::Amber,
             ])

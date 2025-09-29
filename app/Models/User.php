@@ -13,6 +13,7 @@ use App\Models\MedicalSession ;
 use App\Models\UserSpecialist ;
 use App\Models\Subscription ;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;

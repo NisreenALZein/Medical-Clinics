@@ -17,6 +17,8 @@ class AuthServiceProvider extends ServiceProvider
         Patient::class => PatientPolicy::class,
         Appointment::class => AppointmentPolicy::class,
         PatiantFile::class => PatiantFilePolicy::class,
+        Plan::class => PlanPolicy::class,
+        Subscription::class => SubscriptionPolicy::class,
     ];
 
     /**

@@ -8,6 +8,7 @@ use Illuminate\Support\Str ;
 use App\Models\Plan ;
 use App\Models\User ;
 use App\Models\Payment ;
+use App\Notifications\SubscriptionExpiredNotification;
 
 class Subscription extends Model
 {
@@ -60,4 +61,36 @@ class Subscription extends Model
     {
      return $this->hasmany(Payment::class);
     } 
+
+
+     // تحديث حالة الاشتراك بناءً على المدفوعات
+     public function updateStatusBasedOnPayments(): void
+     {
+         $lastPayment = $this->payments()->latest()->first();
+ 
+         if (! $lastPayment) {
+             $this->update(['status' => 'pending']);
+             return;
+         }
+ 
+         if ($lastPayment->status === 'success') {
+             $this->update(['status' => 'active']);
+         } elseif ($lastPayment->status === 'failed') {
+             $this->update(['status' => 'pending']);
+         }
+     }
+ 
+     public function expireIfNeeded(): void
+     {
+         if ($this->status === 'active' && $this->end_date && now()->greaterThan($this->end_date)) {
+             $this->update(['status' => 'expired']);
+     
+             // أرسل إشعار للمستخدم
+             if ($this->user) {
+                 $this->user->notify(new SubscriptionExpiredNotification($this));
+             }
+         }
+     }
+ 
+    
 }
